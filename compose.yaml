@@ -1,0 +1,10 @@
+include: 
+  # Start Ollama
+  - ollama-runtime/ollama.yaml
+
+  # Download LLM
+  - models/gemma-2b.yaml
+  - models/deepseek-coder.yaml
+
+  # Start the GenAI application
+  - little-bot/app.yaml

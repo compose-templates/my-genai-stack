@@ -1,0 +1,17 @@
+services:
+  download-gemma-2b-llm:
+    image: curlimages/curl:8.6.0
+    entrypoint: ["curl", "${OLLAMA_BASE_URL}/api/pull", "-d", '{"name": "gemma:2b"}']
+    environment:
+      - OLLAMA_BASE_URL=${OLLAMA_BASE_URL}
+    depends_on:
+      ollama-service:
+        condition: service_started
+  download-gemma-2b-instruct-llm:
+    image: curlimages/curl:8.6.0
+    entrypoint: ["curl", "${OLLAMA_BASE_URL}/api/pull", "-d", '{"name": "gemma:2b-instruct"}']
+    environment:
+      - OLLAMA_BASE_URL=${OLLAMA_BASE_URL}
+    depends_on:
+      ollama-service:
+        condition: service_started
